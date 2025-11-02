@@ -193,7 +193,8 @@ Para que este tipo de escenas se detecten mejor se debe usar un dataset mucho ma
 
 Por último se van a mostrar las predicciónes de todas las imagenes de validación:
 
-![val](runs/predict16/val_batch0_pred.jpg)
+![val](runs/val_batch0_pred.jpg)
+
 ---
 
 ## Limitaciones
@@ -239,6 +240,7 @@ Subir una imagen `.jpg` o `.png` y recibir un resultado JSON:
 Ejemplo de uso FastAPI para la primera imagen de validación:
 
 ![Ejemplo uso FastAPI](runs/detect/API.png)
+
 ---
 
 ## Conclusión
