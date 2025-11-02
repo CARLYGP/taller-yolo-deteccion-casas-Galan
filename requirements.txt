@@ -1,0 +1,7 @@
+!pip install roboflow ultralytics
+opencv-python
+matplotlib
+fastapi 
+uvicorn 
+pillow
+python-multipart
