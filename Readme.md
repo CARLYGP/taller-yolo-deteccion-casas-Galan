@@ -165,6 +165,7 @@ all          13         15      0.644    0.600   0.644   0.370
 
 ### Ejemplo 1 – Verdadero positivo (detección correcta)
 ![Ejemplo de detección correcta](runs/detect/predict/test.jpg)
+
 **Análisis:**  
 El modelo detecta correctamente la casa principal, con la caja bien ajustada un entorno rural.  
 Confianza: 0.87 
@@ -174,6 +175,7 @@ Resultado: Verdadero positivo (TP)
 
 ### Ejemplo 2 – Falso positivo (detección errónea)
 ![Ejemplo de falso positivo](runs/detect/predict3/test5.jpg)
+
 **Análisis:**  
 El modelo detecta un lago o superficie reflectante como casa con un bote, con confianza de 0.51. Tal vez el material del bote puede tener una textura similar a las casas de zonas costeras utilizadas en el dataset. o tambien puede que se deba al leve reflejo rojo en el lago generado por el techo de la casa. 
 
@@ -182,11 +184,13 @@ Esto podría mejorar aumentando la confianza o etiquetando mas imagenes de casas
 
 ### Ejemplo 3 – Falso negativo (detección omitida)
 ![Ejemplo de falso negativo](runs/detect/predict16/test4.jpg)
+
 **Análisis:**  
 El modelo no detecta muchas casas pequeñas o lejanas.  
 Causa probable: objetos demasiado pequeños o parcialmente visibles no generan suficientes características en las capas profundas de YOLO. Además no se entrenó el modelo con el objetivo de detectar muchas viviendas en una misma imagen.
 
 Para que este tipo de escenas se detecten mejor se debe usar un dataset mucho mas grande y con mayor resolución de imgsz en el entrenamiento para mejor detección de objetos pequeños.
+
 ---
 
 ## Limitaciones
