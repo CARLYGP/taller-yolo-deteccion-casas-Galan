@@ -186,6 +186,7 @@ Esto podría mejorar aumentando la confianza o etiquetando mas imagenes de casas
 ![Ejemplo de falso negativo](runs/detect/predict16/test4.jpg)
 
 **Análisis:**  
+
 El modelo no detecta muchas casas pequeñas o lejanas.  
 Causa probable: objetos demasiado pequeños o parcialmente visibles no generan suficientes características en las capas profundas de YOLO. Además no se entrenó el modelo con el objetivo de detectar muchas viviendas en una misma imagen.
 
@@ -195,6 +196,17 @@ Por último se van a mostrar las predicciónes de todas las imagenes de validaci
 
 ![val](runs/val_batch0_pred.jpg)
 
+**Análisis:**  
+
+- En varias imágenes, el modelo dibuja **múltiples cajas sobre una misma vivienda**, especialmente en casas con colores intensos o detalles arquitectónicos marcados (ventanas, balcones, marcos). Esto refleja que el modelo tiende a fragmentar las detecciones cuando las fachadas presentan texturas fuertes o patrones geométricos.
+- En paisajes abiertos o imágenes tomadas desde el aire, aparecen **falsos positivos**: techos, caminos y zonas claras pueden ser confundidos con estructuras residenciales.  
+  Esto coincide con la tendencia observada en la matriz de confusión, donde el modelo sobredetecta casos similares al patrón “house”.
+- Las detecciones más precisas se presentan en **casas aisladas con fondo natural**, lo que confirma que el modelo generaliza mejor en escenarios rurales o de finca.
+
+Estas observaciones refuerzan la necesidad de:
+- Aumentar el número de imágenes urbanas.
+- Incluir ejemplos negativos (sin casas).
+- Ajustar el umbral de confianza (por ejemplo, 0.45–0.5) para reducir detecciones dudosas.
 ---
 
 ## Limitaciones
