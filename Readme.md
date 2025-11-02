@@ -192,7 +192,9 @@ Causa probable: objetos demasiado pequeños o parcialmente visibles no generan s
 
 Para que este tipo de escenas se detecten mejor se debe usar un dataset mucho mas grande y con mayor resolución de imgsz en el entrenamiento para mejor detección de objetos pequeños.
 
-Por último se van a mostrar las predicciónes de todas las imagenes de validación:
+---
+
+Por último se van a mostrar las predicciones de todas las imagenes de validación:
 
 ![val](runs/val_batch0_pred.jpg)
 
