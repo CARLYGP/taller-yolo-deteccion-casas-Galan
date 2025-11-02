@@ -242,7 +242,7 @@ Ejemplo de uso FastAPI para la primera imagen de validación:
 El modelo **YOLOv11l** logra detectar de forma efectiva casas rurales colombianas, alcanzando una **precisión del 64 %**, un **recall del 60 %**, y un **mAP@50 de 0.64**, lo que indica un desempeño equilibrado entre exactitud y cobertura en la detección.  
 El valor de **mAP@50–95 = 0.37** refleja una capacidad moderada para ajustar las cajas delimitadoras (bounding boxes) a distintos niveles de solapamiento (IoU), siendo consistente con el tamaño reducido y la homogeneidad del dataset.
 
-En general, los resultados muestran que el modelo es **funcional y robusto** frente a variaciones de color, orientación e iluminación, producto de las estrategias de *data augmentation* aplicadas en Roboflow. Sin embargo, su rendimiento puede mejorar significativamente al incrementar la diversidad arquitectónica y geográfica de las muestras.
+En general, los resultados muestran que el modelo es funcional frente a variaciones de color, orientación e iluminación, producto de las estrategias de data augmentation aplicadas en Roboflow. Sin embargo, su rendimiento puede mejorar significativamente al incrementar la diversidad arquitectónica y geográfica de las muestras.
 
 Las principales limitaciones identificadas son:
 1. **Falta de diversidad arquitectónica**: predominan casas rurales, lo que reduce el desempeño en contextos urbanos.  
@@ -255,5 +255,4 @@ Las principales limitaciones identificadas son:
 - **Incrementar la resolución de entrada (imgsz)** y la variedad de augmentaciones para reforzar la detección de casas pequeñas o con ángulos complejos.  
 - **Realizar validaciones cruzadas** y pruebas regionales (urbano vs. rural) para medir el comportamiento geográfico del modelo.
 
-En síntesis, el modelo YOLOv11l constituye una base sólida para un sistema de **detección automática de viviendas colombianas**, pero requiere mayor cobertura y ajuste fino para alcanzar niveles de precisión propios de aplicaciones productivas o urbanas a gran escala.
 
