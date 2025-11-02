@@ -1,4 +1,5 @@
-!pip install roboflow ultralytics
+roboflow 
+ultralytics
 opencv-python
 matplotlib
 fastapi 
