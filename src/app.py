@@ -9,20 +9,19 @@ from PIL import Image
 
 app = FastAPI(title="YOLO Detección de Casas API")
 
-# Cargar modelo entrenado una sola vez al iniciar el servidor
 model = YOLO("models/best.pt")
+
 
 @app.post("/predict/")
 async def predict(file: UploadFile = File(...)):
-    # Leer bytes de la imagen recibida
     image_bytes = await file.read()
     image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
     img = np.array(image)
 
-    # Ejecutar inferencia
+    
     results = model.predict(source=img, conf=0.25, save=False)
 
-    # Construir salida JSON
+    
     detections = []
     for r in results:
         for box in r.boxes:
@@ -41,8 +40,9 @@ async def predict(file: UploadFile = File(...)):
 
 @app.get("/")
 async def root():
-    return {"message": "API YOLO - Detección de Casas activa"}
+    return {"message": " API YOLO - Detección de Casas activa"}
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    import uvicorn
+    uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)
