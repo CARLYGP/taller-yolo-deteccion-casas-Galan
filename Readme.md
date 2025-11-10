@@ -258,8 +258,6 @@ Ejemplo de uso FastAPI para la primera imagen de validación:
 ---
 
 ## Conclusión
-El modelo **YOLOv11l** logra detectar de forma efectiva casas rurales colombianas, alcanzando una **precisión del 64 %**, un **recall del 60 %**, y un **mAP@50 de 0.64**, lo que indica un desempeño equilibrado entre exactitud y cobertura en la detección.  
-El valor de **mAP@50–95 = 0.37** refleja una capacidad moderada para ajustar las cajas delimitadoras (bounding boxes) a distintos niveles de solapamiento (IoU), siendo consistente con el tamaño reducido y la homogeneidad del dataset.
 
 En general, los resultados muestran que el modelo es funcional frente a variaciones de color, orientación e iluminación, producto de las estrategias de data augmentation aplicadas en Roboflow. Sin embargo, su rendimiento puede mejorar significativamente al incrementar la diversidad arquitectónica y geográfica de las muestras.
 
