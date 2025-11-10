@@ -1,9 +1,11 @@
 import os
-from utils import show_detections, infer_folder, cargar_modelo
+import sys
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
+from utils import show_detections, infer_folder
+from ultralytics import YOLO
 
 def cargar_modelo(model_path):
-    from ultralytics import YOLO
     if not os.path.exists(model_path):
         raise FileNotFoundError(f"No se encontró el archivo de pesos en: {model_path}")
     model = YOLO(model_path)
@@ -12,11 +14,19 @@ def cargar_modelo(model_path):
 
 
 if __name__ == "__main__":
-    model_path = "models/best.pt"
-    image_path = "dataset/test/test3.png"
-    folder_path = "dataset/test"
+    # Si el usuario pasa una ruta de imagen por consola, se usa esa.
+    image_path = sys.argv[1] if len(sys.argv) > 1 else "dataset/test/test3.png"
 
+    model_path = "models/best.pt"
     model = cargar_modelo(model_path)
 
-    # Inferencia en una sola imagen
-    show_detections(image_path=image_path, model_path=model_path, conf=0.1, save=True, show=True)
+    show_detections(
+        image_path=image_path,
+        model_path=model_path,
+        conf=0.16,
+        save=True,
+        show=True
+    )
+
+    print(f"\n Inferencia completada sobre: {image_path}")
+    print(" Resultados guardados en 'runs/detect/'")
